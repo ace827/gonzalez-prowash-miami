@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gonzalez ProWash - Miami Pressure Washing | 5.0★ Rated</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --ink: #0d1b2a;
+      --ink2: #1a2a3a;
+      --ink3: #253445;
+      --amber: #d97706;
+      --amber2: #f59e0b;
+      --amber3: #b8860b;
+      --off: #faf8f5;
+      --warm: #f5f0e8;
+      --border: #e5ddd0;
+      --mid: #7a6f63;
+      --dark: #2c3e50;
+      --card: #f9f7f3;
+      --white: #ffffff;
+      --shadow: 0 4px 20px rgba(13, 27, 42, 0.1);
+      --shadow-lg: 0 12px 40px rgba(13, 27, 42, 0.15);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      background: var(--white);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--ink);
+    }
+
+    h1 { font-size: 3.5rem; }
+    h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+    h3 { font-size: 1.5rem; }
+    h4 { font-size: 1.25rem; }
+
+    /* SVG Sprite */
+    svg.icon-sprite {
+      display: none;
+    }
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      display: inline-block;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      stroke: currentColor;
+    }
+
+    .icon.filled {
+      fill: currentColor;
+    }
+
+    .icon-lg {
+      width: 48px;
+      height: 48px;
+    }
+
+    /* Top Bar */
+    .topbar {
+      background: var(--ink);
+      color: var(--white);
+      padding: 0.75rem 0;
+      font-size: 0.9rem;
+    }
+
+    .topbar-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .topbar-left {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .topbar-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .topbar-item .icon {
+      color: var(--amber);
+    }
+
+    .topbar-cta {
+      background: var(--amber);
+      color: var(--ink);
+      padding: 0.5rem 1.2rem;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .topbar-cta:hover {
+      background: var(--amber2);
+    }
+
+    /* Navigation */
+    nav {
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .nav-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-brand .icon {
+      color: var(--amber);
+      width: 32px;
+      height: 32px;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: color 0.3s;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--amber);
+    }
+
+    .nav-cta {
+      background: var(--amber);
+      color: var(--white);
+      padding: 0.7rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: background 0.3s;
+    }
+
+    .nav-cta:hover {
+      background: var(--amber2);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .hero-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--ink) 0%, var(--ink2) 100%);
+      background-image:
+        linear-gradient(135deg, rgba(13, 27, 42, 0.75) 0%, rgba(217, 119, 6, 0.3) 100%),
+        url('https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=1920&q=85');
+      background-size: cover;
+      background-position: center;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 350px;
+      gap: 3rem;
+      align-items: center;
+      width: 100%;
+      color: var(--white);
+    }
+
+    .hero-text h1 {
+      color: var(--white);
+      margin-bottom: 1rem;
+      font-size: 4rem;
+      line-height: 1.1;
+      letter-spacing: -1px;
+    }
+
+    .hero-text p {
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+      max-width: 500px;
+      font-weight: 300;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--amber);
+      color: var(--ink);
+    }
+
+    .btn-primary:hover {
+      background: var(--amber2);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(217, 119, 6, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+    }
+
+    .btn-secondary:hover {
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      border-radius: 8px;
+      color: var(--dark);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-card h4 {
+      margin-bottom: 1.5rem;
+      color: var(--amber);
+    }
+
+    .card-stat {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .card-stat:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .card-label {
+      font-size: 0.85rem;
+      color: var(--mid);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-value {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    /* Stats Band */
+    .stats {
+      background: linear-gradient(135deg, var(--amber) 0%, var(--amber2) 100%);
+      padding: 4rem 2rem;
+      color: var(--white);
+    }
+
+    .stats-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .stat-item h3 {
+      color: var(--white);
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-item p {
+      font-size: 1rem;
+      opacity: 0.95;
+    }
+
+    /* Section Base */
+    section {
+      padding: 5rem 2rem;
+    }
+
+    .section-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      color: var(--mid);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* How It Works */
+    .how-it-works {
+      background: var(--off);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .step {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .step:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .step-number {
+      width: 60px;
+      height: 60px;
+      background: var(--amber);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0 auto 1rem;
+      font-family: 'Raleway', sans-serif;
+    }
+
+    .step h4 {
+      margin-bottom: 0.75rem;
+      color: var(--ink);
+    }
+
+    .step p {
+      color: var(--mid);
+      font-size: 0.95rem;
+    }
+
+    /* Services Grid */
+    .services {
+      background: var(--white);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--card);
+      padding: 2.5rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--amber);
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .service-icon {
+      color: var(--amber);
+      margin-bottom: 1rem;
+    }
+
+    .service-card h4 {
+      margin-bottom: 0.75rem;
+      color: var(--ink);
+    }
+
+    .service-card p {
+      color: var(--mid);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .service-list {
+      list-style: none;
+      font-size: 0.9rem;
+    }
+
+    .service-list li {
+      color: var(--mid);
+      padding: 0.4rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .service-list li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--amber);
+      font-weight: 700;
+    }
+
+    /* Why Choose Us */
+    .why-choose {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .why-choose .section-title h2 {
+      color: var(--white);
+    }
+
+    .why-choose .section-subtitle {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .why-item {
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      border-left: 4px solid var(--amber);
+    }
+
+    .why-item h4 {
+      color: var(--amber);
+      margin-bottom: 1rem;
+    }
+
+    .why-item p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Reviews Section */
+    .reviews {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .reviews .section-title h2 {
+      color: var(--white);
+    }
+
+    .reviews .section-subtitle {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .featured-review {
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 4px solid var(--amber);
+      padding: 3rem;
+      border-radius: 8px;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .featured-review p {
+      font-size: 1.3rem;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      color: rgba(255, 255, 255, 0.95);
+      line-height: 1.8;
+    }
+
+    .review-author {
+      color: var(--amber);
+      font-weight: 600;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .review-card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 8px;
+      border-top: 3px solid var(--amber);
+    }
+
+    .review-stars {
+      color: var(--amber);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .review-text {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .review-name {
+      color: var(--white);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* FAQ Section */
+    .faq {
+      background: var(--off);
+    }
+
+    .faq-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--white);
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .faq-question {
+      padding: 1.5rem 2rem;
+      cursor: pointer;
+      background: var(--white);
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-weight: 600;
+      color: var(--ink);
+      font-size: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s;
+    }
+
+    .faq-question:hover {
+      background: var(--card);
+    }
+
+    .faq-question.active {
+      background: var(--amber);
+      color: var(--white);
+    }
+
+    .faq-question .icon {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s;
+      color: var(--amber);
+    }
+
+    .faq-question.active .icon {
+      transform: rotate(180deg);
+      color: var(--white);
+    }
+
+    .faq-answer {
+      padding: 0 2rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s, padding 0.3s;
+      color: var(--mid);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .faq-answer.active {
+      padding: 1.5rem 2rem;
+      max-height: 500px;
+    }
+
+    /* About Section */
+    .about {
+      background: var(--warm);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-img {
+      background: linear-gradient(135deg, var(--amber) 0%, var(--amber2) 100%);
+      border-radius: 8px;
+      overflow: hidden;
+      height: 400px;
+      background-image:
+        linear-gradient(135deg, rgba(217, 119, 6, 0.7) 0%, rgba(245, 158, 11, 0.7) 100%),
+        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=85');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .about-content h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .about-content p {
+      color: var(--mid);
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .about-list {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .about-list li {
+      padding: 0.75rem 0;
+      padding-left: 2rem;
+      position: relative;
+      color: var(--dark);
+      font-weight: 500;
+    }
+
+    .about-list li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--amber);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    /* CTA Band */
+    .cta-band {
+      background: linear-gradient(135deg, var(--ink) 0%, var(--ink2) 100%);
+      padding: 3rem 2rem;
+      text-align: center;
+      color: var(--white);
+    }
+
+    .cta-band h2 {
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .cta-band p {
+      font-size: 1.2rem;
+      color: var(--amber);
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    /* Contact Section */
+    .contact {
+      background: var(--warm);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .hours-table {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .hours-table h3 {
+      margin-bottom: 1.5rem;
+      color: var(--ink);
+    }
+
+    .hours-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: center;
+    }
+
+    .hours-row:last-child {
+      border-bottom: none;
+    }
+
+    .hours-day {
+      font-weight: 600;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+
+    .hours-time {
+      color: var(--mid);
+      font-size: 0.9rem;
+    }
+
+    .contact-form {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-form h3 {
+      margin-bottom: 1.5rem;
+      color: var(--ink);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--dark);
+      font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--amber);
+      box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-submit {
+      background: var(--amber);
+      color: var(--white);
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background 0.3s;
+      width: 100%;
+    }
+
+    .form-submit:hover {
+      background: var(--amber2);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--ink);
+      color: var(--white);
+      padding: 3rem 2rem;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-col h4 {
+      color: var(--white);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .footer-col p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-col ul li a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--amber);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.85rem;
+    }
+
+    /* Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .rl {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .rl.in {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .rr {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .rr.in {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 1.8rem; }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+      }
+
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-card {
+        margin-top: 2rem;
+      }
+
+      .nav-links {
+        gap: 1.5rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar-left {
+        gap: 1rem;
+      }
+
+      .topbar-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- SVG Icon Sprite -->
+  <svg class="icon-sprite">
+    <defs>
+      <symbol id="i-phone" viewBox="0 0 24 24">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+      </symbol>
+
+      <symbol id="i-pin" viewBox="0 0 24 24">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+        <circle cx="12" cy="10" r="3"/>
+      </symbol>
+
+      <symbol id="i-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10"/>
+        <polyline points="12 6 12 12 16 14"/>
+      </symbol>
+
+      <symbol id="i-star" viewBox="0 0 24 24">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/>
+      </symbol>
+
+      <symbol id="i-bolt" viewBox="0 0 24 24">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+      </symbol>
+
+      <symbol id="i-check" viewBox="0 0 24 24">
+        <polyline points="20 6 9 17 4 12"/>
+      </symbol>
+
+      <symbol id="i-shield" viewBox="0 0 24 24">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </symbol>
+
+      <symbol id="i-chevron-down" viewBox="0 0 24 24">
+        <polyline points="6 9 12 15 18 9"/>
+      </symbol>
+
+      <symbol id="i-mail" viewBox="0 0 24 24">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="M2 6l10 7.5L22 6"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- Top Bar -->
+  <div class="topbar">
+    <div class="topbar-content">
+      <div class="topbar-left">
+        <div class="topbar-item">
+          <svg class="icon"><use href="#i-pin"/></svg>
+          <span>Miami, FL 33170</span>
+        </div>
+        <div class="topbar-item">
+          <svg class="icon"><use href="#i-clock"/></svg>
+          <span>Open 24 Hours</span>
+        </div>
+      </div>
+      <a href="tel:+17864296999" class="topbar-cta">
+        <svg class="icon" style="display: inline; margin-right: 0.5rem;"><use href="#i-phone"/></svg>
+        (786) 429-6999
+      </a>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-content">
+      <a href="#" class="nav-brand">
+        <svg class="icon" style="width: 32px; height: 32px;"><use href="#i-bolt"/></svg>
+        Gonzalez ProWash
+      </a>
+      <ul class="nav-links">
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <button class="nav-cta" onclick="document.querySelector('a[href=\"tel:+17864296999\"]').click()">Call Now</button>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-img"></div>
+    <div class="hero-content">
+      <div class="hero-text reveal rl">
+        <h1>Professional Pressure Washing in Miami</h1>
+        <p>Expert exterior cleaning for homes and businesses. Trusted by hundreds of Miami customers. Available 24/7 for emergencies.</p>
+        <div class="hero-ctas">
+          <a href="tel:+17864296999" class="btn btn-primary">Call (786) 429-6999</a>
+          <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
+        </div>
+        <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.9;">✓ 5.0★ rated • 10+ verified reviews</p>
+      </div>
+      <div class="hero-card reveal rr">
+        <h4>Why Gonzalez ProWash?</h4>
+        <div class="card-stat">
+          <div class="card-label">Google Rating</div>
+          <div class="card-value">5.0<svg class="icon" style="width: 20px; margin-left: 0.5rem; display: inline;"><use href="#i-star"/></svg></div>
+        </div>
+        <div class="card-stat">
+          <div class="card-label">Customer Reviews</div>
+          <div class="card-value">10+</div>
+        </div>
+        <div class="card-stat">
+          <div class="card-label">Service Area</div>
+          <div class="card-value">Miami, FL</div>
+        </div>
+        <div class="card-stat">
+          <div class="card-label">Availability</div>
+          <div class="card-value">24/7</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Band -->
+  <section class="stats">
+    <div class="stats-container">
+      <div class="stat-item reveal">
+        <h3>5.0★</h3>
+        <p>Perfect Google Rating with 10+ Reviews</p>
+      </div>
+      <div class="stat-item reveal d1">
+        <h3>100%</h3>
+        <p>Customer Satisfaction Guaranteed</p>
+      </div>
+      <div class="stat-item reveal d2">
+        <h3>24/7</h3>
+        <p>Available for Emergencies & Urgent Jobs</p>
+      </div>
+      <div class="stat-item reveal d3">
+        <h3>Miami</h3>
+        <p>Serving South Florida Communities</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works" id="how">
+    <div class="section-container">
+      <div class="section-title">
+        <h2>How We Work</h2>
+        <p class="section-subtitle">Simple, transparent process from start to finish.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-number">1</div>
+          <h4>Call Us</h4>
+          <p>Contact us anytime. We're available 24/7 for your convenience.</p>
+        </div>
+        <div class="step reveal d1">
+          <div class="step-number">2</div>
+          <h4>Get Quote</h4>
+          <p>We assess your needs and provide honest, upfront pricing.</p>
+        </div>
+        <div class="step reveal d2">
+          <div class="step-number">3</div>
+          <h4>Professional Work</h4>
+          <p>Expert technicians deliver exceptional cleaning results.</p>
+        </div>
+        <div class="step reveal d3">
+          <div class="step-number">4</div>
+          <h4>100% Satisfaction</h4>
+          <p>Your satisfaction is guaranteed. Results speak for themselves.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="services">
+    <div class="section-container">
+      <div class="section-title">
+        <h2>Our Services</h2>
+        <p class="section-subtitle">Complete pressure washing solutions for every need.</p>
+      </div>
+      <div class="service-grid">
+        <div class="service-card reveal">
+          <svg class="icon icon-lg service-icon"><use href="#i-bolt"/></svg>
+          <h4>Residential Cleaning</h4>
+          <p>Restore your home's beauty with professional pressure washing.</p>
+          <ul class="service-list">
+            <li>House & siding pressure wash</li>
+            <li>Driveway cleaning</li>
+            <li>Deck & patio restoration</li>
+            <li>Roof & gutter cleaning</li>
+          </ul>
+        </div>
+        <div class="service-card reveal d1">
+          <svg class="icon icon-lg service-icon"><use href="#i-shield"/></svg>
+          <h4>Commercial Services</h4>
+          <p>Professional cleaning for businesses and storefronts.</p>
+          <ul class="service-list">
+            <li>Parking lot cleaning</li>
+            <li>Building exterior washing</li>
+            <li>Storefront maintenance</li>
+            <li>Flexible scheduling</li>
+          </ul>
+        </div>
+        <div class="service-card reveal d2">
+          <svg class="icon icon-lg service-icon"><use href="#i-check"/></svg>
+          <h4>Emergency Service</h4>
+          <p>Available 24/7 for urgent cleaning needs.</p>
+          <ul class="service-list">
+            <li>Graffiti removal</li>
+            <li>Mold & algae treatment</li>
+            <li>Stain removal</li>
+            <li>Rapid response</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="why-choose">
+    <div class="section-container">
+      <div class="section-title">
+        <h2>Why Choose Gonzalez ProWash?</h2>
+        <p class="section-subtitle">See what makes us Miami's top pressure washing service.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-item reveal">
+          <h4>Perfect 5.0★ Rating</h4>
+          <p>Every single review is 5 stars. Our customers trust us completely.</p>
+        </div>
+        <div class="why-item reveal d1">
+          <h4>24/7 Availability</h4>
+          <p>Available around the clock for emergencies and urgent jobs.</p>
+        </div>
+        <div class="why-item reveal d2">
+          <h4>Honest Pricing</h4>
+          <p>No hidden fees. You get a transparent quote before work begins.</p>
+        </div>
+        <div class="why-item reveal d3">
+          <h4>Professional Team</h4>
+          <p>Experienced, courteous technicians who care about your property.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section class="reviews" id="reviews">
+    <div class="section-container">
+      <div class="section-title">
+        <h2>Customer Reviews</h2>
+        <p class="section-subtitle">Real feedback from real customers in Miami.</p>
+      </div>
+      <div class="featured-review">
+        <p>"The results were outstanding, my home looks so much cleaner and refreshed."</p>
+        <div class="review-author">— Elizabeth Garcia, Google Reviews</div>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <div class="review-text">Very professional and reliable. They showed up on time, explained everything clearly, and delivered excellent work.</div>
+          <div class="review-name">Elizabeth Garcia</div>
+        </div>
+        <div class="review-card reveal d1">
+          <div class="review-stars">★★★★★</div>
+          <div class="review-text">Very happy with the service. On time and communicated well. The quality of work was top-notch.</div>
+          <div class="review-name">Sandra Dennis</div>
+        </div>
+        <div class="review-card reveal d2">
+          <div class="review-stars">★★★★★</div>
+          <div class="review-text">Thanks to them, my house looks new again. Definitely recommend them!</div>
+          <div class="review-name">Blessup Tube</div>
+        </div>
+        <div class="review-card reveal d3">
+          <div class="review-stars">★★★★★</div>
+          <div class="review-text">Professional crew, great communication, and results exceeded expectations. Highly satisfied!</div>
+          <div class="review-name">Customer</div>
+        </div>
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <div class="review-text">Quick, efficient, and the attention to detail was impressive. Will definitely hire again.</div>
+          <div class="review-name">Customer</div>
+        </div>
+        <div class="review-card reveal d1">
+          <div class="review-stars">★★★★★</div>
+          <div class="review-text">Best pressure washing service I've used. Professional from start to finish.</div>
+          <div class="review-name">Customer</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq" id="faq">
+    <div class="section-container">
+      <div class="section-title">
+        <h2>Frequently Asked Questions</h2>
+        <p class="section-subtitle">Answers to common questions.</p>
+      </div>
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Are you available outside normal business hours?</span>
+            <svg class="icon"><use href="#i-chevron-down"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! We're open 24 hours a day, 7 days a week. We understand that emergencies don't follow a 9-to-5 schedule, so we're always available when you need us. Just give us a call at (786) 429-6999.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>How long does a typical pressure washing job take?</span>
+            <svg class="icon"><use href="#i-chevron-down"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>It depends on the size and scope of the project. Small driveways typically take 1-2 hours, while full house cleaning might take 3-5 hours. During your consultation, we'll give you a detailed time estimate.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>What surfaces can you pressure wash?</span>
+            <svg class="icon"><use href="#i-chevron-down"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>We can safely clean concrete, wood, vinyl siding, stucco, brick, and more. We use the appropriate pressure level and techniques for each surface to prevent damage while delivering excellent results.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Do you offer commercial services?</span>
+            <svg class="icon"><use href="#i-chevron-down"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely. We provide professional pressure washing services for businesses, storefronts, parking lots, and commercial buildings. We can work around your schedule and offer flexible, recurring service plans.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>What payment methods do you accept?</span>
+            <svg class="icon"><use href="#i-chevron-down"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>We accept cash, checks, all major credit cards, and electronic payments. Payment is due upon completion of the job. For larger commercial projects, we can arrange custom payment terms.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Do you guarantee your work?</span>
+            <svg class="icon"><use href="#i-chevron-down"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>100% satisfaction guaranteed. We're so confident in our work that if you're not happy with the results, we'll make it right. Your satisfaction is our top priority.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Is pressure washing safe for my property?</span>
+            <svg class="icon"><use href="#i-chevron-down"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, when done by professionals. We know which pressure levels to use for different surfaces and how to protect landscaping, windows, and other vulnerable areas. Our team has years of experience handling all property types safely.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="section-container">
+      <div class="about-grid">
+        <div class="about-img reveal rl"></div>
+        <div class="about-content reveal rr">
+          <h2>About Gonzalez ProWash</h2>
+          <p>Gonzalez ProWash is Miami's trusted pressure washing service. We've built our reputation on delivering exceptional results, honest pricing, and reliable service at any hour.</p>
+          <p>Available 24/7 because we understand that property maintenance doesn't always happen during business hours. Whether it's an emergency graffiti removal or a routine cleaning, we're here when you need us.</p>
+          <ul class="about-list">
+            <li>24/7 availability for emergencies</li>
+            <li>Professional, experienced team</li>
+            <li>100% satisfaction guarantee</li>
+            <li>5.0★ rated on Google</li>
+            <li>Honest, upfront pricing</li>
+            <li>Licensed and fully insured</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <section class="cta-band">
+    <div class="section-container">
+      <h2>Ready to Clean Your Property?</h2>
+      <p>(786) 429-6999 — Call 24/7</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="tel:+17864296999" class="btn btn-primary">Call Now</a>
+        <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="section-container">
+      <h2 style="text-align: center; margin-bottom: 3rem;">Contact & Hours</h2>
+      <div class="contact-grid">
+        <div class="hours-table">
+          <h3>Hours & Address</h3>
+          <div class="hours-row">
+            <div class="hours-day">Monday–Sunday</div>
+            <div class="hours-time">Open 24 Hours</div>
+          </div>
+          <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border);">
+            <h4 style="color: var(--amber); margin-bottom: 0.5rem;">Address</h4>
+            <p style="color: var(--dark); margin-bottom: 1.5rem;">22490 SW 107th Ct<br>Miami, FL 33170</p>
+            <h4 style="color: var(--amber); margin-bottom: 0.5rem;">Phone</h4>
+            <p style="color: var(--dark); font-weight: 600; margin-bottom: 0;">(786) 429-6999</p>
+          </div>
+        </div>
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <h3>Get a Free Quote</h3>
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone *</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" placeholder="Your property address">
+          </div>
+          <div class="form-group">
+            <label for="message">What needs cleaning? *</label>
+            <textarea id="message" name="message" placeholder="Describe your cleaning needs..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message</button>
+          <p style="font-size: 0.8rem; color: var(--mid); margin-top: 1rem; text-align: center;">We'll respond quickly via phone or email.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4>Gonzalez ProWash</h4>
+        <p>Professional pressure washing in Miami. Available 24/7 for your cleaning needs.</p>
+        <p style="margin-bottom: 0; font-size: 0.85rem; color: var(--amber); font-weight: 600;">✓ Licensed • Insured • 5.0★ Rated</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Residential Cleaning</a></li>
+          <li><a href="#services">Commercial Services</a></li>
+          <li><a href="#services">Emergency Service</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="tel:+17864296999">Call 24/7</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Gonzalez ProWash Services LLC. All rights reserved. Miami, FL | Call (786) 429-6999</p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll Reveal Animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal, .rl, .rr').forEach(el => {
+      observer.observe(el);
+    });
+
+    // FAQ Accordion
+    function toggleFaq(button) {
+      const answer = button.nextElementSibling;
+      button.classList.toggle('active');
+      answer.classList.toggle('active');
+    }
+
+    // Form Submission
+    function handleSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+
+      alert(`Thanks ${name}! We'll call you at ${phone} soon.`);
+      e.target.reset();
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#') {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
